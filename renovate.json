@@ -9,5 +9,6 @@
     "group:allNonMajor"
   ],
   "assignees": ["eddiebeazer"],
-  "dependencyDashboardAutoclose": true
+  "dependencyDashboardAutoclose": true,
+  "enabledManagers": ["buildkite", "github-actions", "gomod"]
 }
