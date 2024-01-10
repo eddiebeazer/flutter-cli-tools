@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "config:best-practices",
+    ":automergeMinor",
+    ":automergeRequireAllStatusChecks",
+    ":disableRateLimiting",
+    ":automergeBranch",
+    "schedule:weekdays",
+    "group:allNonMajor"
+  ],
+  "assignees": ["eddiebeazer"],
+  "dependencyDashboardAutoclose": true
+}
