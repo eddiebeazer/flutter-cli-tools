@@ -12,19 +12,11 @@ component_management:
         branches:
           - "!main"
   individual_components:
-    - component_id: module_clean
-      name: clean
+    - component_id: module_fastlane
+      name: fastlane
       paths:
-        - pkgs/clean/**
-    - component_id: module_jsonToXml
-      name: jsonToXml
+        - pkgs/fastlane/**
+    - component_id: module_flutter
+      name: flutter
       paths:
-        - pkgs/jsonToXml/**
-    - component_id: module_parseLintReport
-      name: parseLintReport
-      paths:
-        - pkgs/parseLintReport/**
-    - component_id: module_projectVersion
-      name: projectVersion
-      paths:
-        - pkgs/projectVersion/**
+        - pkgs/flutter/**

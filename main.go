@@ -58,7 +58,7 @@ func main() {
 							repo := cCtx.String("repo")
 							version := cCtx.String("version")
 							release, err := fastlane.GetGithubRelease(owner, repo, version)
-							if err == nil {
+							if err != nil {
 								return err
 							}
 							log.Println(*release.TagName)
@@ -96,7 +96,7 @@ func main() {
 							repo := cCtx.String("repo")
 							draft := cCtx.Bool("draft")
 							release, err := fastlane.GetLatestGithubRelease(owner, repo, draft)
-							if err == nil {
+							if err != nil {
 								return err
 							}
 							log.Println(*release.TagName)
