@@ -1,34 +1,21 @@
 # unreal-ci
-[![License](https://img.shields.io/github/license/eddiebeazer/unreal-ci?color=blue)](https://opensource.org/license/mit/) 
+[![License](https://img.shields.io/github/license/eddiebeazer/unreal-ci?color=blue)](https://opensource.org/license/mit/)
 
-[![codecov](https://codecov.io/gh/eddiebeazer/unreal-ci/graph/badge.svg?token=N622BZP1RR)](https://codecov.io/gh/eddiebeazer/unreal-ci)
+[![codecov](https://codecov.io/gh/eddiebeazer/flutter-cli-tools/graph/badge.svg?token=3Hc0j7C3wy)](https://codecov.io/gh/eddiebeazer/flutter-cli-tools)
 
-[![Build status](https://badge.buildkite.com/a90cdd645739568fa23c96aaebb46e5e06b0b03d87f6961e67.svg)](https://buildkite.com/the-digital-sages/unreal-ci)
+[![Build status](https://badge.buildkite.com/0dd0a7b5430670feb6ba2b340d430b96c04a007bf5099fb611.svg)](https://buildkite.com/the-digital-sages/flutter-cli-tools)
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/eddiebeazer/unreal-ci)](https://goreportcard.com/report/github.com/eddiebeazer/unreal-ci)
+[![Go Report Card](https://goreportcard.com/badge/github.com/eddiebeazer/flutter-cli-tools)](https://goreportcard.com/report/github.com/eddiebeazer/flutter-cli-tools)
 
-## What Unreal CI does
+## What Flutter CLI Tools does
 
-This is a commandline tool that's acts as a companion to the [ue4cli](https://docs.adamrehn.com/ue4cli/overview/introduction-to-ue4cli)
-tool.  I mainly created a separate tool because this tool was designed to help out with more niche workflows such as
-updating your projects version, parsing lint reports from [LinterV2](https://www.unrealengine.com/marketplace/en-US/product/linter-v2?sessionInvalidated=true),
-cleaning your archive directory when building and parsing JSON produced from the built-in uat test tool into JUnit format
-for test parsing.  I use this in my pipelines for all of my games and tools.  As my workload increases, I'll add in any
-functionally that feels useful for other people to use
+This was a simple CLI I made to work in tandem with using fastlane and flutter.  In particular the 2 annoying tasks I felt
+like I was dealing with in my deployment pipelines was setting the app version and getting release notes from GitHub (draft).
+This takes care of that.  You can get and set flutter app versions as well as get release notes from GitHub
 
-## Installation
-
-This CLI can be used with Go installed on your system or through a docker container. The tool will assume that you are using
-it in your projects root directory(directory with your *.uproject file in it), if you aren't you need to specify paths
-which will be listed below.
-
-### Go install
+### Installation
 
 ```
-go install https://github.com/TheDigitalSages/unreal-ci
-unreal-ci help
+go install https://github.com/eddiebeazer/flutter-cli-tools
+flutter-cli-tools help
 ```
-
-### Docker
-
-This image was mainly meant to be used as a CI image for GitHub actions, TeamCity, Jenkins, etc.
