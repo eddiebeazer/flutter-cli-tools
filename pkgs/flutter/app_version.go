@@ -3,7 +3,6 @@ package flutter
 import (
 	"github.com/eddiebeazer/flutter-cli-tools/pkgs/fastlane"
 	"github.com/spf13/viper"
-	"log"
 	"os"
 )
 
@@ -11,21 +10,26 @@ type Pubspec struct {
 	Version string `yaml:"version"`
 }
 
-func currentDir() (cwd string) {
+func currentDir() (string, error) {
 	cwd, err := os.Getwd()
 	if err != nil {
-		log.Fatal(err)
+		return "", err
 	}
 
-	return cwd
+	return cwd, err
 }
 
 func ParsePubspecFile() error {
-	viper.SetConfigName("pubspec")
-	viper.AddConfigPath(currentDir())
+	dir, err := currentDir()
+	if err != nil {
+		return err
+	}
 
-	err := viper.ReadInConfig() // Find and read the config file
-	if err != nil {             // Handle errors reading the config file
+	viper.SetConfigName("pubspec")
+	viper.AddConfigPath(dir)
+
+	err = viper.ReadInConfig() // Find and read the config file
+	if err != nil {            // Handle errors reading the config file
 		return err
 	}
 

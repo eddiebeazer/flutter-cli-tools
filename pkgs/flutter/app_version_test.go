@@ -1,19 +1,62 @@
 package flutter
 
-//func TestCleanDirectory(t *testing.T) {
-//	dirToTest := "Test"
-//	err := os.Mkdir(dirToTest, 777)
-//	assert.Nil(t, err)
-//
-//	// Testing that we can successfully delete the "Test" directory
-//	err = Dist(dirToTest)
-//	assert.Nil(t, err)
-//
-//	// Testing that we exit if the directory isn't provided
-//	err = Dist("")
-//	assert.NotNil(t, err)
-//
-//	// Testing fake directory that does not exists
-//	err = Dist("aeed/asd//")
-//	assert.Nil(t, err)
-//}
+import (
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
+
+func TestGetAppVersion(t *testing.T) {
+	version, err := GetAppVersion()
+	if err != nil {
+		return
+	}
+	assert.Equal(t, version, "0.1.0+0")
+
+	// Manually setting app version
+	err = SetAppVersion("2.5.5", "23")
+	if err != nil {
+		return
+	}
+	version, err = GetAppVersion()
+	if err != nil {
+		return
+	}
+	assert.Equal(t, version, "2.5.5+23")
+
+	// Setting app version from Github
+	err = SetAppVersionFromLatestGithubRelease("eddiebeazer", "unreal-ci", false, "532")
+	if err != nil {
+		return
+	}
+	version, err = GetAppVersion()
+	if err != nil {
+		return
+	}
+	assert.Equal(t, version, "0.1.3+532")
+}
+
+func TestSetAppVersion(t *testing.T) {
+	// Manually setting app version
+	err := SetAppVersion("2.5.5", "23")
+	if err != nil {
+		return
+	}
+	version, err := GetAppVersion()
+	if err != nil {
+		return
+	}
+	assert.Equal(t, version, "2.5.5+23")
+}
+
+func TestSetAppVersionFromGitHub(t *testing.T) {
+	// Setting app version from Github
+	err := SetAppVersionFromLatestGithubRelease("eddiebeazer", "unreal-ci", false, "532")
+	if err != nil {
+		return
+	}
+	version, err := GetAppVersion()
+	if err != nil {
+		return
+	}
+	assert.Equal(t, version, "0.1.3+532")
+}
