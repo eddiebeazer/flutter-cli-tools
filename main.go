@@ -174,8 +174,7 @@ func main() {
 							&cli.StringFlag{
 								Name:    "build",
 								Aliases: []string{"b"},
-								Value:   "0",
-								Usage:   "Build number of the version.  Defaults to 0",
+								Usage:   "Build number of the version",
 							},
 						},
 						Action: func(cCtx *cli.Context) error {
