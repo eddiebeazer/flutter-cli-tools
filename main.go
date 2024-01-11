@@ -62,7 +62,7 @@ func main() {
 							if err != nil {
 								return err
 							}
-							fmt.Println(*release.TagName)
+							fmt.Printf(*release.TagName)
 							return nil
 						},
 					},
@@ -100,7 +100,7 @@ func main() {
 							if err != nil {
 								return err
 							}
-							fmt.Println(*release.TagName)
+							fmt.Printf(*release.TagName)
 							return nil
 						},
 					},
@@ -118,7 +118,7 @@ func main() {
 							if err != nil {
 								return err
 							}
-							fmt.Println(version)
+							fmt.Printf(version)
 							return err
 						},
 					},
