@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/eddiebeazer/flutter-cli-tools/pkgs/fastlane"
 	"github.com/eddiebeazer/flutter-cli-tools/pkgs/flutter"
 	"log"
@@ -61,7 +62,7 @@ func main() {
 							if err != nil {
 								return err
 							}
-							log.Println(*release.TagName)
+							fmt.Println(*release.TagName)
 							return nil
 						},
 					},
@@ -99,7 +100,7 @@ func main() {
 							if err != nil {
 								return err
 							}
-							log.Println(*release.TagName)
+							fmt.Println(*release.TagName)
 							return nil
 						},
 					},
@@ -115,9 +116,9 @@ func main() {
 						Action: func(cCtx *cli.Context) error {
 							version, err := flutter.GetAppVersion()
 							if err != nil {
-								log.Panicln(err)
+								return err
 							}
-							log.Println(version)
+							fmt.Println(version)
 							return err
 						},
 					},
