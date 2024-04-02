@@ -5,7 +5,6 @@ go 1.21
 require (
 	github.com/google/go-github/v58 v58.0.0
 	github.com/google/go-github/v61 v61.0.0
-	github.com/google/go-github/v61 v61.0.0
 	github.com/spf13/viper v1.18.2
 	github.com/stretchr/testify v1.9.0
 	github.com/urfave/cli/v2 v2.27.1
